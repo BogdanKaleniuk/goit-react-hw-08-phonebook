@@ -13,6 +13,7 @@ export default function ContactItem({ id, name, number, onDeleteContact }) {
   );
 }
 
+
 ContactItem.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
