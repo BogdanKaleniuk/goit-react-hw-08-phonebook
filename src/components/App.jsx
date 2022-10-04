@@ -1,6 +1,5 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid'
-import Contact from './Contact/Contact';
 import ContactList from './ContactList/ContactList';
 import Filter from './Filter/Filter';
 import Message from './Message/Message';
@@ -8,7 +7,7 @@ import FormEl from './Form/Form';
 
 export default class App extends Component {
 
-  
+
 state = {
   contacts: [
     {id: 'id-1', name: 'Rosie Simpson', number: '459-12-56'},
