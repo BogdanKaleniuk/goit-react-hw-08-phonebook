@@ -67,6 +67,6 @@ return (
      )
 };
 
-FormEl.propTyper = {
+FormEl.propTypes = {
   onSubmit: PropTypes.func.isRequired,
 };

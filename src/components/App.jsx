@@ -19,7 +19,11 @@ state = {
 }
 
     handlerSubmit = ({ name, number }) => {
-    const nameToRegistr = name.toLowerCase();
+    const nameToRegistr = name;
+    if (this.findDuplicateName(nameToRegistr)) {
+      alert('Такий контакт вже існує');
+      return;
+    } 
     this.addContact(nameToRegistr, number);
 };
 
@@ -40,16 +44,29 @@ state = {
     }));
   };
 
+   filteredContacts = () => {
+    const { contacts, filter } = this.state;
+    return contacts.filter(({ name }) =>
+      name.toLowerCase().includes(filter.toLowerCase)
+    );
+  };
+
+
     visibleContacts = () => {
     const { contacts, filter } = this.state;
     const normalizedFilter = filter.toLowerCase();
     return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(normalizedFilter)
+      contact.name.includes(normalizedFilter)
     );
   };
   
     onFilterChange = e => {
     this.setState({ filter: e.currentTarget.value });
+  };
+
+    findDuplicateName = name => {
+    const { contacts } = this.state;
+    return contacts.find(item => item.name.toLowerCase() === name);
   };
 
     render() {
