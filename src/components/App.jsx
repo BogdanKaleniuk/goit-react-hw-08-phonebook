@@ -10,15 +10,29 @@ export default class App extends Component {
 
 state = {
   contacts: [
-    {id: 'id-1', name: 'Rosie Simpson', number: '459-12-56'},
-    {id: 'id-2', name: 'Hermione Kline', number: '443-89-12'},
-    {id: 'id-3', name: 'Eden Clements', number: '645-17-79'},
-    {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},
+    {id: 'id-1', name: 'Crimean bridge', number: ' delete?'},
+    {id: 'id-2', name: 'Crimean bridge', number: ' delete?'},
+    {id: 'id-3', name: 'Crimean bridge', number: ' delete?'},
+    {id: 'id-4', name: 'Crimean bridge', number: ' delete?'},
   ],
   filter: '',
 }
 
-    handlerSubmit = ({ name, number }) => {
+  componentDidMount() {
+    const contactsParse = JSON.parse(localStorage.getItem('contacts'))
+     if (contactsParse) {
+      this.setState({ contacts: contactsParse });
+    }
+}
+
+  componentDidUpdate(prevState) {
+    const {contacts} = this.state;
+    if (contacts !== prevState.contacts) {
+      localStorage.setItem('contacts', JSON.stringify(contacts));
+    }
+}
+
+  handlerSubmit = ({ name, number }) => {
     const nameToRegistr = name;
     if (this.findDuplicateName(nameToRegistr)) {
       alert('Такий контакт вже існує');
@@ -27,7 +41,7 @@ state = {
     this.addContact(nameToRegistr, number);
 };
 
-    addContact = (name, number) => {
+  addContact = (name, number) => {
     const contact = {
       id: nanoid(),
       name,
@@ -44,7 +58,7 @@ state = {
     }));
   };
 
-   filteredContacts = () => {
+  filteredContacts = () => {
     const { contacts, filter } = this.state;
     return contacts.filter(({ name }) =>
       name.toLowerCase().includes(filter.toLowerCase)
@@ -52,7 +66,7 @@ state = {
   };
 
 
-    visibleContacts = () => {
+  visibleContacts = () => {
     const { contacts, filter } = this.state;
     const normalizedFilter = filter.toLowerCase();
     return contacts.filter(contact =>
@@ -60,16 +74,16 @@ state = {
     );
   };
   
-    onFilterChange = e => {
+  onFilterChange = e => {
     this.setState({ filter: e.currentTarget.value });
   };
 
-    findDuplicateName = name => {
+  findDuplicateName = name => {
     const { contacts } = this.state;
     return contacts.find(item => item.name.toLowerCase() === name);
   };
 
-    render() {
+  render() {
      const { contacts, filter } = this.state;
 
     const newVisibleContacts = this.visibleContacts();
