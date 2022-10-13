@@ -27,13 +27,13 @@ state = {
 
   componentDidUpdate(prevState) {
     const {contacts} = this.state;
-    if (contacts !== prevState.contacts) {
+    if (contacts !== contacts) {
       localStorage.setItem('contacts', JSON.stringify(contacts));
     }
 }
 
   handlerSubmit = ({ name, number }) => {
-    const nameToRegistr = name;
+    const nameToRegistr = name.toLowerCase();
     if (this.findDuplicateName(nameToRegistr)) {
       alert('Такий контакт вже існує');
       return;
