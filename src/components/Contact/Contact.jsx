@@ -7,7 +7,7 @@ export default function ContactItem({ id, name, number, onDeleteContact }) {
     <Item>
       {name}:{number}
       <CloseBtn type="button" onClick={() => onDeleteContact(id)}>
-        delete
+        Delete
       </CloseBtn>
     </Item>
   );

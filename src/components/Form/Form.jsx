@@ -32,6 +32,7 @@ export default function FormEl({ onSubmit }) {
     onSubmit(values);
     resetForm();
   };
+
 return (
     <Formik
     initialValues={initialValues}
@@ -60,7 +61,7 @@ return (
             <Error name="number" component="div" />
           </Label>
 
-          <Btn type="submit">Add contact </Btn>
+          <Btn type="submit">Add contact</Btn>
         </FormBook>
      </Formik>
      )

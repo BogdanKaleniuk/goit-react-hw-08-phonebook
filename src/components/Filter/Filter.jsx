@@ -2,14 +2,14 @@ import { PropTypes } from 'prop-types';
 
 import { FindWrapper, FindTitle, Input } from './Filter.styled';
 
-export default function Filter({onChange, value }) {
+export default function Filter({onChange, filter }) {
   return (
     <FindWrapper>
       <FindTitle>Find contacts by name</FindTitle>
       <Input
         type="text"
         placeholder="Enter search name"
-        value={value}
+        value={filter}
         onChange={onChange}
       />
     </FindWrapper>
@@ -18,5 +18,5 @@ export default function Filter({onChange, value }) {
 
 Filter.propTypes = {
   onChange: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired,
+  filter: PropTypes.string.isRequired,
 };
