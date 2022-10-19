@@ -12,7 +12,7 @@ export default function App() {
   const [filter, setFilter] = useState('');
   
   const handlerSubmit = ({ name, number }) => {
-    if (contacts.find(item => item.name.toLowerCase() === name)) {
+    if (contacts.find(item => item.name.toLowerCase() === name.toLowerCase())) {
        alert('Такий контакт вже існує');
       return;
     }
