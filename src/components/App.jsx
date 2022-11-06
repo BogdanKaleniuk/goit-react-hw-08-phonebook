@@ -1,56 +1,47 @@
-import { useState } from 'react';
-import { nanoid } from 'nanoid'
 import ContactList from './ContactList/ContactList';
 import Filter from './Filter/Filter';
 import Message from './Message/Message';
 import FormEl from './Form/Form';
-import { useLocalSrorage } from './hooks/useLocalSrorage';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { addContact, removeContact, filterContacts} from '../store/contacts'
 
 export default function App() {
 
-  const [contacts, setContacts] = useLocalSrorage('contacts', []);
-  const [filter, setFilter] = useState('');
-  
+  const dispatch = useDispatch()
+
+  const contacts = useSelector(state => state.contacts.items)
+  const query = useSelector(state => state.contacts.filter)
+
   const handlerSubmit = ({ name, number }) => {
     if (contacts.find(item => item.name.toLowerCase() === name.toLowerCase())) {
        alert('Такий контакт вже існує');
       return;
     }
-    addContact(name, number);
+    dispatch(addContact(name, number));
 };
-
- const addContact = (name, number) => {
-    const newContact = {id: nanoid(), name, number,};
-    setContacts(contacts => [newContact, ...contacts]);
-  };
-
- const deleteContact = id => {
-    setContacts(contacts => contacts.filter(contact => contact.id !== id))
-  };
-
-  const filteredContacts = () => {
-    return contacts.filter(({ name }) =>
-      name.toLowerCase().includes(filter.toLowerCase())
-    );
-  };
   
  const onFilterChange = e => {
-    setFilter(e.currentTarget.value);
+    dispatch(filterContacts(e.currentTarget.value));
   };
+
+  const deleteContact = id => {
+    dispatch(removeContact(id))
+  }
 
   return (
   <div>
-        <Message Message="Phonebook" />
+        <Message title="Phonebook" />
         <FormEl onSubmit={handlerSubmit} />
         <Filter
           Message="Find contacts by name"
-          filter={filter}
+          filter={query}
           onChange={onFilterChange}
         />
         {contacts.length > 0 && (
           <ContactList
-            Message="Contacts"
-            contacts={filteredContacts()}
+            title="Contacts"
+            contacts={contacts}
             onDeleteContact={deleteContact}
           />
         )}
