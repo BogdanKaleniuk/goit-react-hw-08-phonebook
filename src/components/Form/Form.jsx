@@ -30,7 +30,7 @@ const initialValues = {
   number: '',
 };
 
-export default function FormEl({ onSubmit }) {
+export default function FormEl() {
   const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
   const handleSubmit = (values, { resetForm }) => {

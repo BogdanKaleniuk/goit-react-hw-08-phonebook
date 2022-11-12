@@ -1,19 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { statusFilters } from './constants';
+// import { statusFilters } from './constants';
 
-const filtersInitialState = {
-  status: statusFilters.all,
+const filterInitialState = {
+  value: '',
 };
-
 const filterSlice = createSlice({
-  name: 'filters',
-  initialState: filtersInitialState,
+  name: 'filter',
+  initialState: filterInitialState,
   reducers: {
-    setStatusFilter(state, action) {
-      state.status = action.payload;
+    setFilter(state, action) {
+      state.value = action.payload;
     },
   },
 });
-
 export const { setFilter } = filterSlice.actions;
 export const filterReducer = filterSlice.reducer;

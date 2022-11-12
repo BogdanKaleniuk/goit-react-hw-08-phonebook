@@ -13,7 +13,7 @@ export default function Filter({ title }) {
   };
   return (
     <FindWrapper>
-      <FindTitle>Find contacts by name</FindTitle>
+      <FindTitle>{title}</FindTitle>
       <Input
         type="text"
         placeholder="Enter search name"

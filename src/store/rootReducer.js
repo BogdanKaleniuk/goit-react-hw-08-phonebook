@@ -1,10 +1,9 @@
-import { combineReducers } from 'redux'
+// import { combineReducers } from 'redux';
 
-import contactsReducer from './contacts'
+// import contactsReducer from './contacts';
 
-const rootReducer = combineReducers({
-  contacts: contactsReducer,
-})
+// const rootReducer = combineReducers({
+//   contacts: contactsReducer,
+// });
 
-export default rootReducer
-
+// export default rootReducer;

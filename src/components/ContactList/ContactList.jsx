@@ -8,9 +8,11 @@ export default function ContactList({ title }) {
   const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
   const normFilter = filter.value.toLowerCase();
+
   const filteredContacts = contacts.items.filter(({ name }) =>
     name?.toLowerCase()?.includes(normFilter)
   );
+
   return (
     <Div>
       {contacts.items.length > 0 && (
@@ -18,13 +20,7 @@ export default function ContactList({ title }) {
           <ContactTitle>{title}</ContactTitle>
           <ContactWrapper>
             {filteredContacts.map(({ id, name, number }) => (
-              <Item
-                key={id}
-                id={id}
-                name={name}
-                number={number}
-                // onDeleteContact={onDeleteContact}
-              />
+              <Item key={id} id={id} name={name} number={number} />
             ))}
           </ContactWrapper>
         </>

@@ -9,8 +9,8 @@ export default function ContactItem({ id, name, number }) {
   return (
     <Item>
       {name}:{number}
-      <CloseBtn type="button" onClick={() => handleDelete(id)}>
-        Delete
+      <CloseBtn type="button" onClick={handleDelete}>
+        X
       </CloseBtn>
     </Item>
   );
@@ -20,5 +20,4 @@ ContactItem.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   number: PropTypes.string.isRequired,
-  // onDeleteContact: PropTypes.func.isRequired,
 };
