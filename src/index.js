@@ -7,6 +7,7 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from './theme';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
+// import { BrowserRouter } from 'react-router-dom';
 // import { persistStore } from 'reduxjs-toolkit-persist';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -14,8 +15,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <ThemeProvider theme={theme}>
       <Provider store={store}>
         {/* <PersistGate loading={null}> */}
+        {/* <BrowserRouter basename="/your_repo_name/"> */}
         <App />
         {/* </PersistGate> */}
+        {/* </BrowserRouter> */}
       </Provider>
     </ThemeProvider>
   </React.StrictMode>

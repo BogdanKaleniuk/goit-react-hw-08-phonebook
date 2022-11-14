@@ -1,5 +1,3 @@
-import { PropTypes } from 'prop-types';
-
 import { MainTitle } from './Message.styled';
 
 export default function Title() {
@@ -9,7 +7,3 @@ export default function Title() {
     </>
   );
 }
-
-Title.propTypes = {
-  title: PropTypes.string.isRequired,
-};
