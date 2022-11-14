@@ -5,15 +5,14 @@ const extraActions = [fetchContacts, addContact, deleteContact];
 
 const getActionsWithType = type =>
   extraActions.map(extraAction => extraAction[type]);
-// ...extraActions.map(extraAction => extraAction.pending)
 
-const handleFetchContactsReducer = (state, action) => {
+const fetchContactsReducer = (state, action) => {
   state.items = action.payload;
 };
-const handleAddContactReducer = (state, action) => {
+const addContactReducer = (state, action) => {
   state.items.push(action.payload);
 };
-const handleDeleteContactReducer = (state, action) => {
+const deleteContactReducer = (state, action) => {
   const index = state.items.findIndex(
     contact => contact.id === action.payload.id
   );
@@ -40,9 +39,9 @@ const contactsSlice = createSlice({
   },
   extraReducers: builder =>
     builder
-      .addCase(fetchContacts.fulfilled, handleFetchContactsReducer)
-      .addCase(addContact.fulfilled, handleAddContactReducer)
-      .addCase(deleteContact.fulfilled, handleDeleteContactReducer)
+      .addCase(fetchContacts.fulfilled, fetchContactsReducer)
+      .addCase(addContact.fulfilled, addContactReducer)
+      .addCase(deleteContact.fulfilled, deleteContactReducer)
       .addMatcher(
         isAnyOf(...getActionsWithType('fulfilled')),
         anyFulfielledReducer

@@ -37,10 +37,9 @@ export default function FormEl() {
     const findDuplicateName = (contacts, newName) => {
       return contacts.find(({ name }) => name.toLowerCase() === newName);
     };
-    const { name } = values;
-    const nameToRegistr = name.toLowerCase();
-    if (findDuplicateName(contacts.items, nameToRegistr)) {
-      alert(`${name} is already in your contacts`);
+    const registerName = values.name.toLowerCase();
+    if (findDuplicateName(contacts.items, registerName)) {
+      alert(`${values.name} is already in your contacts`);
       return;
     }
 

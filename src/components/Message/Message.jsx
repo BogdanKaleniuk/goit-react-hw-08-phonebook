@@ -2,10 +2,10 @@ import { PropTypes } from 'prop-types';
 
 import { MainTitle } from './Message.styled';
 
-export default function Title({ title }) {
+export default function Title() {
   return (
     <>
-      <MainTitle>{title}</MainTitle>
+      <MainTitle>Phonebook</MainTitle>
     </>
   );
 }

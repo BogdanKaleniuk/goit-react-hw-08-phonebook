@@ -1,15 +1,13 @@
 import { PropTypes } from 'prop-types';
 import { FindWrapper, FindTitle, Input } from './Filter.styled';
-import { useSelector, useDispatch } from 'react-redux';
-import { setFilter } from '../../redux/filterSlice';
-import { getFilter } from 'redux/selectors';
+import { useDispatch } from 'react-redux';
+import { setStatusFilter } from '../../redux/filterSlice';
 
 export default function Filter({ title }) {
   const dispatch = useDispatch();
-  const filter = useSelector(getFilter);
 
   const onFilterChange = event => {
-    dispatch(setFilter(event.currentTarget.value));
+    dispatch(setStatusFilter(event.currentTarget.value));
   };
   return (
     <FindWrapper>
@@ -17,7 +15,6 @@ export default function Filter({ title }) {
       <Input
         type="text"
         placeholder="Enter search name"
-        value={filter}
         onChange={onFilterChange}
       />
     </FindWrapper>
