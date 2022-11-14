@@ -3,7 +3,7 @@ import { FindWrapper, FindTitle, Input } from './Filter.styled';
 import { useDispatch } from 'react-redux';
 import { setStatusFilter } from '../../redux/filterSlice';
 
-export default function Filter({ title }) {
+export default function Filter() {
   const dispatch = useDispatch();
 
   const onFilterChange = event => {
@@ -11,7 +11,7 @@ export default function Filter({ title }) {
   };
   return (
     <FindWrapper>
-      <FindTitle>{title}</FindTitle>
+      <FindTitle>Find contacts</FindTitle>
       <Input
         type="text"
         placeholder="Enter search name"

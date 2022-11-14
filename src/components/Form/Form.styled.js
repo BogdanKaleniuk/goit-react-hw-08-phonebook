@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Form, Field, ErrorMessage } from 'formik';
 
 export const FormBook = styled(Form)`
-width: 300px;
+  width: 300px;
   display: flex;
   flex-direction: column;
   gap: 10px;

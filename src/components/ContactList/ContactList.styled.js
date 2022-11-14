@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Div = styled.div`
+  margin-left: 5px;
   padding-bottom: 10px;
 `;
 
@@ -11,6 +12,7 @@ export const ContactTitle = styled.h3`
 `;
 
 export const ContactWrapper = styled.ol`
+  margin-left: 5px;
   display: flex;
   flex-direction: column;
   gap: 15px;
