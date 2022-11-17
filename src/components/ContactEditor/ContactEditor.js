@@ -1,16 +1,17 @@
 import { useDispatch } from 'react-redux';
-import { addTask } from '../../redux/tasks/operations';
-import css from './TaskEditor.module.css';
+import { addTask } from '../../redux/Contacts/operations';
+import css from './ContactEditor.module.css';
 
-export const TaskEditor = () => {
+export const ContactEditor = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.currentTarget;
-    const text = form.elements.text.value;
-    if (text !== '') {
-      dispatch(addTask(text));
+    const name = form.elements.name.value;
+    const number = form.elements.number.value;
+    if (name !== '' && number !== '') {
+      dispatch(addTask({ name, number }));
       form.reset();
       return;
     }
@@ -19,7 +20,8 @@ export const TaskEditor = () => {
 
   return (
     <form className={css.form} onSubmit={handleSubmit}>
-      <input name="text" className={css.input} />
+      <input name="name" className={css.input} />
+      <input name="number" className={css.input} />
       <button type="submit" className={css.button}>
         Add task
       </button>

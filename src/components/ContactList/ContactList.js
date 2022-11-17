@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
-import { Task } from '../Task/Task';
-import { selectAllTasks } from 'redux/tasks/selectors';
+import { Contact } from '../Contact/Contsct';
+import { selectAllTasks } from 'redux/Contacts/selectors';
 import css from './TaskList.module.css';
 
 export const TaskList = () => {
@@ -10,7 +10,7 @@ export const TaskList = () => {
     <ul className={css.list}>
       {tasks.map(({ id, text }) => (
         <li key={id}>
-          <Task id={id} text={text} />
+          <Contact id={id} text={text} />
         </li>
       ))}
     </ul>
