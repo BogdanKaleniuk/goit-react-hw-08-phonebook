@@ -1,3 +1,6 @@
+import { Image } from '@chakra-ui/react';
+
+import image from '../images/5177903.png';
 const styles = {
   container: {
     minHeight: 'calc(100vh - 50px)',
@@ -16,10 +19,8 @@ export default function Home() {
   return (
     <div style={styles.container}>
       <h1 style={styles.title}>
-        Task manager welcome page{' '}
-        <span role="img" aria-label="Greeting icon">
-          💁‍♀️(.)
-        </span>
+        PhoneBook
+        <Image src={image} alt="img" objectFit="cover" width="500px" />
       </h1>
     </div>
   );

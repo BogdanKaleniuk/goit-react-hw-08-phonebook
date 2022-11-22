@@ -1,28 +1,45 @@
+import { DeleteIcon } from '@chakra-ui/icons';
+
 import { useDispatch } from 'react-redux';
-import { deleteTask } from 'redux/Contacts/operations';
-import css from './Contact.module.css';
-import Button from '@mui/material/Button';
+import { deleteContact } from 'redux/contacts/operations';
+
+import { Card, Text, CardBody, Button, Flex, Box } from '@chakra-ui/react';
 
 export const Contact = ({ id, name, number }) => {
   const dispatch = useDispatch();
-  const handleDelete = () => dispatch(deleteTask(id));
-
+  const handleDelete = () => dispatch(deleteContact(id));
+  // const active = name === number;
+  const innerBoxStyles = {
+    display: 'block',
+    fontSize: '20px',
+  };
   return (
-    <div className={css.wrapper}>
-      <p className={css.text}>{name}</p>
-      <p className={css.number}>{number}</p>
-      <button type="button" className={css.button} onClick={handleDelete}>
-        Delete
-      </button>
-
-      <Button
-        type="button"
-        variant="contained"
-        color="success"
-        onClick={handleDelete}
-      >
-        Delete
-      </Button>
-    </div>
+    <Box sx={innerBoxStyles}>
+      <Card>
+        <CardBody>
+          <Flex pl="5">
+            <Text>
+              {name} : {number}
+            </Text>
+            <Button
+              color="green"
+              bg="white"
+              // bg={active ? 'glassTeal' : undefined}
+              // color={active ? '#202023' : undefined}
+              _hover={{
+                background: 'red',
+                color: 'white',
+                br: '5',
+              }}
+              type="button"
+              onClick={handleDelete}
+            >
+              {/* Delete */}
+              <DeleteIcon w={15} h={15} />
+            </Button>
+          </Flex>
+        </CardBody>
+      </Card>
+    </Box>
   );
 };
