@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from '../../redux/contacts/operations';
+import { addContact } from '../../redux/dfghgf/operations';
 // import css from './ContactEditor.module.css';
 import { Formik } from 'formik';
-import { selectContacts } from 'redux/contacts/selectors';
+import { selectContacts } from 'redux/dfghgf/selectors';
 import { FormBook, Input, Label, Btn, Error } from './ContactEditor.styled';
 import * as yup from 'yup';
 

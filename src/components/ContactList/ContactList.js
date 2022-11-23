@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { Contact } from 'components/Contact/Contsct';
-import { selectContacts, selectFilter } from 'redux/contacts/selectors';
+import { selectContacts, selectFilter } from 'redux/dfghgf/selectors';
 import { Flex } from '@chakra-ui/react';
 
 export default function ContactList() {
