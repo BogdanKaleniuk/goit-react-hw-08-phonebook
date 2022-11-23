@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { updateFilter } from 'redux/dfghgf/contactsSlice';
-import { selectFilter } from 'redux/dfghgf/selectors';
+import { updateFilter } from 'redux/contacts/contactsSlice';
+import { selectFilter } from 'redux/contacts/selectors';
 import { Input } from '@chakra-ui/react';
 import { Heading, Flex } from '@chakra-ui/react';
 

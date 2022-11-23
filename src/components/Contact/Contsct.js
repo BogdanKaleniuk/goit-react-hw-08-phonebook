@@ -1,7 +1,7 @@
 import { DeleteIcon } from '@chakra-ui/icons';
 
 import { useDispatch } from 'react-redux';
-import { deleteContact } from 'redux/dfghgf/operations';
+import { deleteContact } from 'redux/contacts/operations';
 
 import { Card, Text, CardBody, Button, Flex, Box } from '@chakra-ui/react';
 

@@ -2,12 +2,12 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // import { TaskList } from 'components/ContactList/ContactList';
 import { ContactEditor } from 'components/ContactEditor/ContactEditor';
-import { fetchContacts } from 'redux/dfghgf/operations';
+import { fetchContacts } from 'redux/contacts/operations';
 import {
   selectIsLoading,
   selectError,
   selectContacts,
-} from 'redux/dfghgf/selectors';
+} from 'redux/contacts/selectors';
 import ContactList from 'components/ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter.jsx';
 import { CircularProgress } from '@chakra-ui/react';
