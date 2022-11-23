@@ -38,6 +38,7 @@ export default function ContactsPage() {
       </div>
       <ContactList />
       {error}
+      {contacts.length > 1 && <div>У вас {contacts.length} контактів </div>}
     </>
   );
 }

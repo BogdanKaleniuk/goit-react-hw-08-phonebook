@@ -9,6 +9,8 @@ const styles = {
     justifyContent: 'center',
   },
   title: {
+    paddingLeft: 100,
+    paddingRight: 100,
     fontWeight: 500,
     fontSize: 48,
     textAlign: 'center',

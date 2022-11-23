@@ -21,6 +21,7 @@ export const Contact = ({ id, name, number }) => {
             <Text>
               {name} : {number}
             </Text>
+
             <Button
               color="green"
               bg="white"
