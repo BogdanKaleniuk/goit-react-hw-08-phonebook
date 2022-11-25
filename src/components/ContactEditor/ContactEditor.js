@@ -33,22 +33,22 @@ export const ContactEditor = () => {
   // const onChangeNumber = e => setNumber(e.currentTarget.value);
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
-  const handleSubmit = values => {
-    const findDuplicateName = (contact, newName) => {
-      return contacts.find(({ name }) => name.toLowerCase() === newName);
-    };
+  // const handleSubmit = values => {
+  //   const findDuplicateName = (contact, newName) => {
+  //     return contact.find(({ name }) => name.toLowerCase() === newName);
+  //   };
 
-    const { name } = values;
-    const nameToRegistr = name.toLowerCase();
-    if (findDuplicateName(contacts.items, nameToRegistr)) {
-      alert(`${name} is already in your contacts`);
-      return;
-    }
+  //   const { name } = values;
+  //   const nameToRegistr = name.toLowerCase();
+  //   if (findDuplicateName(contacts.items, nameToRegistr)) {
+  //     alert(`${name} is already in your contacts`);
+  //     return;
+  //   }
 
-    dispatch(addContact(values));
-    // resetForm();
-    // alert(`${name} has been added to your contacts`);
-  };
+  //   dispatch(addContact(values));
+  //   // resetForm();
+  //   // alert(`${name} has been added to your contacts`);
+  // };
 
   // const resetForm = () => {
   //   setName('');
@@ -64,7 +64,20 @@ export const ContactEditor = () => {
       validationSchema={schema}
       // initialValues={initialValues}
       // validationSchema={schema}
-      onSubmit={handleSubmit}
+      onSubmit={(values, { resetForm }) => {
+        const findDuplicateName = (contact, newName) => {
+          return contact.find(({ name }) => name.toLowerCase() === newName);
+        };
+        const { name } = values;
+        const nameToRegistr = name.toLowerCase();
+        if (findDuplicateName(contacts.items, nameToRegistr)) {
+          alert(`${name} is already in your contacts`);
+          return;
+        }
+
+        dispatch(addContact(values));
+        resetForm();
+      }}
     >
       <FormBook autoComplete="off">
         <Label>
