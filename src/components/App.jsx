@@ -48,7 +48,7 @@ export const App = () => {
           }
         />
       </Route>
-      <Route path="*" element={<Layout />} replace />
+      <Route path="*" element={<div>Сторінка не знайдена!</div>} />
     </Routes>
   );
 };
