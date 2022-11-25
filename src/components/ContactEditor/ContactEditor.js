@@ -66,7 +66,7 @@ export const ContactEditor = () => {
       // validationSchema={schema}
       onSubmit={(values, { resetForm }) => {
         const findDuplicateName = (contact, newName) => {
-          return contact.find(({ name }) => name.toLowerCase() === newName);
+          return contacts.find(({ name }) => name.toLowerCase() === newName);
         };
         const { name } = values;
         const nameToRegistr = name.toLowerCase();
