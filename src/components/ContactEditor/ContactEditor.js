@@ -5,6 +5,7 @@ import { Formik } from 'formik';
 import { selectContacts } from 'redux/contacts/selectors';
 import { FormBook, Input, Label, Btn, Error } from './ContactEditor.styled';
 import * as yup from 'yup';
+import { useState } from 'react';
 
 let schema = yup.object().shape({
   name: yup
@@ -26,12 +27,17 @@ let schema = yup.object().shape({
 });
 
 export const ContactEditor = () => {
+  const [name, setName] = useState('');
+  const [number, setNumber] = useState('');
+  const onChangeName = e => setName(e.currentTarget.value);
+  const onChangeNumber = e => setNumber(e.currentTarget.value);
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
   const handleSubmit = values => {
     const findDuplicateName = (contact, newName) => {
-      return contacts.find(({ name }) => name.toLowerCase() === newName);
+      return contact.find(({ name }) => name.toLowerCase() === newName);
     };
+
     const { name } = values;
     const nameToRegistr = name.toLowerCase();
     if (findDuplicateName(contacts.items, nameToRegistr)) {
@@ -40,7 +46,13 @@ export const ContactEditor = () => {
     }
 
     dispatch(addContact(values));
+    resetForm();
     // alert(`${name} has been added to your contacts`);
+  };
+
+  const resetForm = () => {
+    setName('');
+    setNumber('');
   };
 
   return (
@@ -58,6 +70,7 @@ export const ContactEditor = () => {
         <Label>
           Name
           <Input
+            onChange={onChangeName}
             type="text"
             placeholder="Enter name"
             name="name"
@@ -68,6 +81,7 @@ export const ContactEditor = () => {
         <Label>
           Number
           <Input
+            onChange={onChangeNumber}
             type="tel"
             placeholder="+380"
             name="number"
